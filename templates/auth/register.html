@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container text-center mt-5 pt-5">
+<form method="post">
+  {% csrf_token %}
+ 
+  {% if error %}
+  <div class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+  {% endif %}
+
+  
+    <h1 class="h3 mb-3 fw-normal">Please register</h1>
+    <div class="form-floating">
+      <input type="text" name="f_name" class="form-control mt-4" id="floatingInput" placeholder="first name">
+      <label for="floatingInput">First name</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" name="l_name" class="form-control mt-4" id="floatingInput" placeholder="last name">
+      <label for="floatingInput">Last name</label>
+    </div>
+    <div class="form-floating">
+      <input type="email" name="email" class="form-control mt-4" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" name="password" class="form-control mt-4" id="floatingPassword" placeholder="Password"><br>
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+    <p class="mt-5 mb-3 text-muted">Already have an account?<a href="{% url 'login_attempt'%}">Login</a></p>
+  </form>
+</div>
+{% endblock %}
